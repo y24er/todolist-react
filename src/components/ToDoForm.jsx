@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class ToDoForm extends Component{
+class ToDoForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -15,7 +15,7 @@ class ToDoForm extends Component{
 
     inputText = (event) => {
         let text = event.target.value;
-        this.setState( {
+        this.setState({
             text: text
         })
     }
@@ -25,7 +25,7 @@ class ToDoForm extends Component{
             <div>
                 <form onSubmit={this.onsubmit}>
                     <input type="text" onChange={this.inputText}/>
-                    <input type="submit" value = "add" />
+                    <input type="submit" value="add"/>
                 </form>
             </div>
         )

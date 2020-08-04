@@ -1,34 +1,33 @@
 import React, {Component} from "react";
-import ReactDom from 'react-dom'
-class ToDo extends Component {
 
+class ToDo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            done:true,
+            done: false
         }
     }
 
-    isClick = () => {
-        let todo = document.getElementById("todo");
+    isClick = (event) => {
         this.setState({
             done: !this.state.done
         });
-        if (this.state.done){
-            ReactDom.findDOMNode(todo).style.textDecoration = "line-through"
-            // console.log(this.state.todo.current)
-            // this.state.todo.current.style.textDecoration = "line-through"
+        if (this.state.done) {
+            event.target.style.textDecoration = "none"
         } else {
-            ReactDom.findDOMNode(todo).style.textDecoration = "none"
-            // this.state.todo.current.style.textDecoration = "none"
+            event.target.style.textDecoration = "line-through"
         }
-        console.log(this.state.done)
     };
+
+    delete = (event) => {
+        this.props.delete(event.target.previousElementSibling.id)
+    }
 
     render() {
         return (
             <div>
-                <input id="todo" value={this.props.todo} onClick={this.isClick} readOnly/>
+                <input id={this.props.index} value={this.props.todo} onClick={this.isClick} readOnly/>
+                <button onClick={this.delete}>X</button>
             </div>
         )
     }
