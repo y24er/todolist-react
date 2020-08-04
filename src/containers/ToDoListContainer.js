@@ -1,4 +1,9 @@
-import todoList from "../reducers/todoList";
+import ToDoList from "../components/ToDoList";
 import {connect} from "react-redux";
-import mapDispatchToProps from "react-redux/es/connect/mapDispatchToProps";
-const todoList = connect(null, mapDispatchToProps)
+
+const mapStateToProps = (state) => (
+    {
+    todoList: state.todoList
+})
+const ToDoListContainer = connect(mapStateToProps)(ToDoList)
+export default ToDoListContainer
