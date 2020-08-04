@@ -1,0 +1,1 @@
+export const addTodo = text => ({type: "ADD_TO_DO", text});
