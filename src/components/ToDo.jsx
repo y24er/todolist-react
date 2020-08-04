@@ -12,6 +12,7 @@ class ToDo extends Component {
         this.setState({
             done: !this.state.done
         });
+        // this.props.change(event.target.id, !this.state.done)
         if (this.state.done) {
             event.target.style.textDecoration = "none"
         } else {
