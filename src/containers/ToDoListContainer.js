@@ -11,11 +11,11 @@ const mapDispatchToProps = dispatch => ({
     initTodo: todos => {
         dispatch(initTodo(todos))
     },
-    removeTodo: index => {
-        dispatch(removeTodo(index))
+    removeTodo: id => {
+        dispatch(removeTodo(id))
     },
-    changeTodo: (index) => {
-        dispatch(changeTodo(index))
+    changeTodo: (id) => {
+        dispatch(changeTodo(id))
     }
 });
 const ToDoListContainer = connect(mapStateToProps, mapDispatchToProps)(ToDoList)

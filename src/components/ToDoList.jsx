@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import ToDo from "./ToDo"
 import axios from "axios";
+import {List} from "antd";
+import ToDo from "./ToDo";
 
 class ToDoList extends Component {
     delete = (index) => {
@@ -23,10 +24,10 @@ class ToDoList extends Component {
     render() {
         console.log(this.props.todoList)
         return (
-            this.props.todoList.map((todo, index) => (
-                <ToDo todo={todo.content} done={todo.status} index={todo.id} key={index} delete={this.delete}
-                      change={this.change}/>
-            ))
+            <List size="small" bordered dataSource={this.props.todoList}
+                  renderItem={todo => <List.Item><ToDo content={todo.content} status={todo.status} id={todo.id}
+                                                       delete={this.delete}
+                                                       change={this.change}/></List.Item>}/>
         )
     }
 }

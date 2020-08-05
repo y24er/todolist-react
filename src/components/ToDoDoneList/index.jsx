@@ -11,11 +11,11 @@ class ToDoDoneList extends Component {
 
     render() {
         console.log(this.props.todoList)
-        let doneList = this.props.todoList.filter((todo) => (todo.isDone))
+        let doneList = this.props.todoList.filter((todo) => (todo.status))
         console.log(doneList)
         return (
             doneList.map((todo, index) => (
-                <ToDo todo={todo.content} done={todo.isDone} id={this.props.todoList.length - index - 1} key={index}
+                <ToDo todo={todo.content} done={todo.status} id={this.props.todoList.length - index - 1} key={index}
                       delete={this.delete} change={this.change}/>,
                     console.log(this.props.todoList.length - index - 1)
             ))
