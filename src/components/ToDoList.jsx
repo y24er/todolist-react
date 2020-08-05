@@ -15,7 +15,7 @@ class ToDoList extends Component {
         axios.get(API).then((response) => {
             this.props.initTodo(response.data)
             console.log(response.data)
-        }).catch(error=>{
+        }).catch(error => {
             console.log(error)
         })
     }
