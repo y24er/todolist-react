@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import 'antd/dist/antd.css';
+import {Button, Input} from 'antd';
 
 class ToDoForm extends Component {
     constructor(props) {
@@ -23,10 +25,8 @@ class ToDoForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onsubmit}>
-                    <input type="text" onChange={this.inputText}/>
-                    <input type="submit" value="add"/>
-                </form>
+                <Input type="text" onChange={this.inputText}/>
+                <Button type="submit" onClick={this.onsubmit}>add</Button>
             </div>
         )
     }

@@ -1,20 +1,22 @@
 import ToDoList from "../components/ToDoList";
 import {connect} from "react-redux";
-import {changeTodo, removeTodo} from "../actions";
+import {changeTodo, initTodo, removeTodo} from "../actions";
 
-// const defaultState = {todoList: []}
 const mapStateToProps = (state) => (
     {
         todoList: state.todoList
     })
 
 const mapDispatchToProps = dispatch => ({
+    initTodo: todos => {
+        dispatch(initTodo(todos))
+    },
     removeTodo: index => {
         dispatch(removeTodo(index))
     },
-    // changeTodo: (index, done) => {
-    //     dispatch(changeTodo(index, done))
-    // }
+    changeTodo: (index) => {
+        dispatch(changeTodo(index))
+    }
 });
 const ToDoListContainer = connect(mapStateToProps, mapDispatchToProps)(ToDoList)
 export default ToDoListContainer

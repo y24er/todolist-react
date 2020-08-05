@@ -22,7 +22,7 @@ function App() {
                     </nav>
                     <ToDoFormContainer/>
                     <Route path="/" exact component={ToDoListContainer}/>
-                    <Route path="donePage" component={ToDoDoneListContainer}/>
+                    <Route path="/donePage" component={ToDoDoneListContainer}/>
                 </header>
             </BrowserRouter>
         </div>
