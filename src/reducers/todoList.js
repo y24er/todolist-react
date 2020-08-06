@@ -2,24 +2,22 @@ const todoList = (state = [], action) => {
 
     switch (action.type) {
         case "ADD_TO_DO":
-            return [...state, {content: action.content, status: false}];
+            return [...state, {content: action.todo.content, status: false}];
         case "REMOVE_TODO": {
-            // console.log(state)
-            // console.log(action)
-            // let todo = state.filter((todo) => (todo.id===action.id))
-            // return [...state.slice(0, action.id), ...state.slice(action.id + 1)]
+            return [...state.filter((todo) => (todo.id !== action.id))]
         }
         case "CHANGE_TODO": {
-            let todo = state.filter((todo) => (todo.id===action.id))
-            console.log(todo)
-            todo[0].status = !todo[0].status
+            state.forEach(todo => {
+                if (todo.id === action.id) todo.status = !todo.status
+            })
             return [...state]
         }
         case "INIT_TODO": {
             return action.todos
+            // return {type: "INIT_TODO", todos:todos}.todos
         }
         default:
-            return state
+            return [123, 456]
     }
 };
 

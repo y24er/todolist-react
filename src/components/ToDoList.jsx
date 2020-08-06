@@ -4,11 +4,11 @@ import {List} from "antd";
 import ToDo from "./ToDo";
 
 class ToDoList extends Component {
-    delete = (index) => {
-        this.props.removeTodo(index)
+    delete = (id) => {
+        this.props.removeTodo(id)
     }
-    change = (index) => {
-        this.props.changeTodo(index)
+    change = (id) => {
+        this.props.changeTodo(id)
     }
 
     componentDidMount() {
@@ -22,12 +22,13 @@ class ToDoList extends Component {
     }
 
     render() {
-        console.log(this.props.todoList)
+        console.log("todolist", this.props.todoList)
         return (
             <List size="small" bordered dataSource={this.props.todoList}
-                  renderItem={todo => <List.Item><ToDo content={todo.content} status={todo.status} id={todo.id}
-                                                       delete={this.delete}
-                                                       change={this.change}/></List.Item>}/>
+                  renderItem={todo => <List.Item><ToDo /*content={todo.content} status={todo.status} id={todo.id}*/
+                      todo={todo}
+                      delete={this.delete}
+                      change={this.change}/></List.Item>}/>
         )
     }
 }

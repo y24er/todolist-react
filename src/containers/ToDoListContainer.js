@@ -3,13 +3,17 @@ import {connect} from "react-redux";
 import {changeTodo, initTodo, removeTodo} from "../actions";
 
 const mapStateToProps = (state) => (
-    {
-        todoList: state.todoList
-    })
+    console.log(state),
+        console.log(state.todoList),
+        {
+            // todoList: {todoList:[]}.todoList
+            todoList: state.todoList
+        })
 
 const mapDispatchToProps = dispatch => ({
     initTodo: todos => {
         dispatch(initTodo(todos))
+        // dispatch({type: "INIT_TODO", todos:todos})
     },
     removeTodo: id => {
         dispatch(removeTodo(id))

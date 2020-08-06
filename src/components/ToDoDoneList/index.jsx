@@ -2,11 +2,11 @@ import React, {Component} from "react";
 import ToDo from "../ToDo";
 
 class ToDoDoneList extends Component {
-    delete = (index) => {
-        this.props.removeTodo(index)
+    delete = (id) => {
+        this.props.removeTodo(id)
     }
-    change = (index) => {
-        this.props.changeTodo(index)
+    change = (id) => {
+        this.props.changeTodo(id)
     }
 
     render() {
@@ -15,10 +15,8 @@ class ToDoDoneList extends Component {
         console.log(doneList)
         return (
             doneList.map((todo, index) => (
-                <ToDo todo={todo.content} done={todo.status} id={this.props.todoList.length - index - 1} key={index}
-                      delete={this.delete} change={this.change}/>,
-                    console.log(this.props.todoList.length - index - 1)
-            ))
+                <ToDo todo={todo} key={index}
+                      delete={this.delete} change={this.change}/>))
         )
     }
 }
