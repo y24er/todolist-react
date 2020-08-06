@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import axios from "axios";
 import {List} from "antd";
 import ToDo from "./ToDo";
+import API from "../api/api";
 
 class ToDoList extends Component {
     delete = (id) => {
@@ -11,9 +11,8 @@ class ToDoList extends Component {
         this.props.changeTodo(id)
     }
 
-    componentDidMount() {
-        const API = 'https://5e9ec500fb467500166c4658.mockapi.io/todos'
-        axios.get(API).then((response) => {
+    componentDidMount = async () => {
+        await API.getTodo().then((response) => {
             this.props.initTodo(response.data)
             console.log(response.data)
         }).catch(error => {
@@ -25,7 +24,7 @@ class ToDoList extends Component {
         console.log("todolist", this.props.todoList)
         return (
             <List size="small" bordered dataSource={this.props.todoList}
-                  renderItem={todo => <List.Item><ToDo /*content={todo.content} status={todo.status} id={todo.id}*/
+                  renderItem={todo => <List.Item><ToDo
                       todo={todo}
                       delete={this.delete}
                       change={this.change}/></List.Item>}/>

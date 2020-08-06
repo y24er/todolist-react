@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import 'antd/dist/antd.css';
 import {Button, Input, Space} from 'antd';
-import axios from "axios";
+import API from "../api/api";
 
 class ToDoForm extends Component {
     constructor(props) {
@@ -18,11 +18,10 @@ class ToDoForm extends Component {
         }
         console.log("todo", todo)
         this.addTodo(todo)
-        // this.props.addToDo(this.state.text)
     };
 
     addTodo = (todo) => {
-        axios.post("https://5e9ec500fb467500166c4658.mockapi.io/todos", todo)
+        API.postTodo(todo)
             .then(response => this.props.addToDo(response.data))
     }
 
