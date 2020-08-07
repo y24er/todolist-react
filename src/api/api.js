@@ -7,7 +7,7 @@ export default {
     },
 
     putTodo: (id, status) => {
-        return axios.put(API + `/${id}`, {status: !status})
+        return axios.put(API + `/`+id, {status: !status})
     },
 
     deleteTodo: id => {

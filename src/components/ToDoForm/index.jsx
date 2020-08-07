@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import 'antd/dist/antd.css';
 import {Button, Input, Space} from 'antd';
-import API from "../api/api";
+import API from "../../api/api";
 
 class ToDoForm extends Component {
     constructor(props) {

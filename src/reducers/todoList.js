@@ -2,7 +2,7 @@ const todoList = (state = [], action) => {
 
     switch (action.type) {
         case "ADD_TO_DO":
-            return [...state, {content: action.todo.content, status: false}];
+            return [...state, {id:action.todo.id,content: action.todo.content, status: false}];
         case "REMOVE_TODO": {
             return [...state.filter((todo) => (todo.id !== action.id))]
         }
@@ -17,7 +17,7 @@ const todoList = (state = [], action) => {
             // return {type: "INIT_TODO", todos:todos}.todos
         }
         default:
-            return [123, 456]
+            return state
     }
 };
 

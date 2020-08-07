@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {List} from "antd";
-import ToDo from "./ToDo";
-import API from "../api/api";
+import ToDo from "../ToDo";
+import API from "../../api/api";
 
 class ToDoList extends Component {
     delete = (id) => {

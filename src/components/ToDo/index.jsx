@@ -4,19 +4,13 @@ import DeleteOutlined from "@ant-design/icons/es/icons/DeleteOutlined";
 import API from "../../api/api";
 
 class ToDo extends Component {
-    updateStatus = (id, status) => {
-        API.putTodo(id, status).then((response) => {
+    isClick = () => {
+        API.putTodo(this.props.todo.id, this.props.todo.status).then((response) => {
             console.log(response)
         }).catch(error => {
             console.log(error)
         })
-    }
-
-
-    isClick = (event) => {
-        this.updateStatus(event.target.id, this.props.status);
-        this.props.change(event.target.id)
-        console.log(this.props.status)
+        this.props.change(this.props.todo.id)
     };
 
     delete = () => {
